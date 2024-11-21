@@ -6,6 +6,7 @@ public class BreadthFirstSearch {
     public static int[][] bfs(int[][] grid) {
         int rows = grid.length;
         int cols = grid[0].length;
+        //coordinates of the position in the grid
         Queue<int[]> queue = new LinkedList<>();
         boolean[][] visited = new boolean[rows][cols];
 
@@ -23,7 +24,7 @@ public class BreadthFirstSearch {
 
             System.out.println("Visited node: (" + row + ", " + col + ")");
 
-            //try all the direction 
+            //try all the direction
             for(int[] dir : directions) {
                 int newRow = row + dir[0];
                 int newCol = col + dir[1];
@@ -31,7 +32,6 @@ public class BreadthFirstSearch {
                 if(newRow >= 0 && newRow < rows && newCol >=0 && newCol < cols && !visited[newRow][newCol]){
                     visited[newRow][newCol] = true;
                     queue.offer(new int[]{newRow, newCol});
-                  //  System.out.println(grid[newRow][newCol]);
                 }
             }
         }
