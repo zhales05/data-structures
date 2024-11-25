@@ -1,9 +1,11 @@
+import util.TreeNode;
+
 import java.util.*;
 
 public class BreadthFirstSearch {
 
 
-    public static int[][] bfs(int[][] grid) {
+    public static void bfs(int[][] grid) {
         int rows = grid.length;
         int cols = grid[0].length;
         //coordinates of the position in the grid
@@ -35,10 +37,9 @@ public class BreadthFirstSearch {
                 }
             }
         }
-        return null;
     }
 
-    public static Map<Integer, List<Integer>> bfs(Map<Integer, List<Integer>> graph, int startNode) {
+    public static void bfs(Map<Integer, List<Integer>> graph, int startNode) {
         Map<Integer, List<Integer>> result = new HashMap<>();
         // visited will keep track of the nodes we have been to so we don't hit them again
         //it can be a set because each node it unique even if the value is the same (the key is not)
@@ -63,6 +64,24 @@ public class BreadthFirstSearch {
                 }
             }
         }
-        return null;
     }
+
+    public static void bfs(TreeNode node) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(node);
+
+        while(!queue.isEmpty()) {
+            TreeNode curr = queue.poll();
+            System.out.println("Visited node: " + curr.val);
+
+            if(curr.left != null) {
+                queue.add(curr.left);
+            }
+
+            if(curr.right != null) {
+                queue.add(curr.right);
+            }
+        }
+    }
+
 }

@@ -28,4 +28,21 @@ public class TestData {
         graph.put(4, Arrays.asList(1));
         graph.put(5, Arrays.asList(2));
     }
+
+    public static TreeNode createTree() {
+        Integer[] values = {3, 9, 20, null, null, 15, 7};
+        return createTreeFromArray(values, 0);
+    }
+
+    private static TreeNode createTreeFromArray(Integer[] values, int index) {
+        if (index >= values.length || values[index] == null) {
+            return null;
+        }
+
+        TreeNode node = new TreeNode(values[index]);
+        node.left = createTreeFromArray(values, 2 * index + 1);
+        node.right = createTreeFromArray(values, 2 * index + 2);
+
+        return node;
+    }
 }
