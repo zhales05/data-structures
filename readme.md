@@ -1,7 +1,4 @@
 # 
-
-A brief description of what your project does.
-
 ## Table of Contents
 
 - [Installation](#installation)
